@@ -60,6 +60,7 @@ int main(int argc, char **argv)
 
             // publish battery msg
             sensor_msgs::BatteryState battery_msg;
+            battery_msg.header.stamp = ros::Time::now();
             battery_msg.percentage = rsoc / 100.0; // 转换为百分比
             battery_msg.voltage = voltage * 0.01;  // 转换为伏特
             battery_msg.current = current * 0.01;  // 转换为安培
